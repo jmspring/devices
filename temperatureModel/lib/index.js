@@ -11,10 +11,10 @@ function TemperatureModelDevice(config) {
   this.tags = ['sends:temperature'];
 }
 
-TemeratureModelDevice = Object.create(nitrogen.Device.prototype);
-TemeratureModelDevice.prototype.constructor = TemeratureModelDevice;
+TemperatureModelDevice.prototype = Object.create(nitrogen.Device.prototype);
+TemperatureModelDevice.prototype.constructor = TemperatureModelDevice;
 
-TemeratureModelDevice.prototype.measure = function(callback) {
+TemperatureModelDevice.prototype.measure = function(callback) {
   var self = this;
   var messages = [
     new nitrogen.Message({
@@ -27,8 +27,8 @@ TemeratureModelDevice.prototype.measure = function(callback) {
   return callback(null, messages);
 };
 
-TemeratureModelDevice.prototype.status = function(callback) {
+TemperatureModelDevice.prototype.status = function(callback) {
     callback(false, {});
 };
 
-module.exports = TemeratureModelDevice;
+module.exports = TemperatureModelDevice;
